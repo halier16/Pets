@@ -6,10 +6,20 @@
     $passwd = $_POST['passwd'];
     $enc_pass = md5($passwd);
 
-    $sql = "
+    $sql_validate_email = "SELECT * FROM users WHERE email = '$email'";
+    $result = pg_query($conn, $sql_value_email);
+    $total = pg_num_rows($result);
+
+    if($total > 0){
+        echo "<script >alert('email already exist')</script>";
+
+    }else {
+        $sql = "
         INSERT INTO users (fullname, email, password) 
             VALUES ('$fullname', '$email','$enc_pass')
     ";
+        
+    }
 
     $ans = pg_query($conn,$sql);
     if ($ans){
