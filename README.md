@@ -1,2 +1,2 @@
-# Pets
-my pets app
+# pets
+My pets' store
