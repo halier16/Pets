@@ -1,3 +1,10 @@
+<?phpsession_start();
+if(isset($_SESSION["id_user"])){
+    header("Location:../home.php");
+}else{
+        header("Location:../singin.php");    
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
